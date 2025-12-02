@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -50,4 +51,17 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+
+    // TAMBAHKAN DEPENDENCIES FIREBASE INI:
+
+    // 1. Firebase BoM (Pakai versi terbaru yang kamu temukan)
+    implementation(platform("com.google.firebase:firebase-bom:34.6.0"))
+    // 2. Firebase Auth (TANPA menulis nomor versi, karena sudah diatur oleh BoM)
+    implementation("com.google.firebase:firebase-auth")
+    // 3. Google Play Services (Gunakan versi terbaru 21.4.0)
+    implementation("com.google.android.gms:play-services-auth:21.4.0")
+    // Opsional: Analytics
+    implementation("com.google.firebase:firebase-analytics")
+    // Library untuk Splash Screen kustom
+    implementation("androidx.core:core-splashscreen:1.2.0")
 }
